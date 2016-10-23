@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use UserBundle\Entity\User;
 use UserBundle\Entity\Role;
+use FlikerBundle\Entity\Category;
 
 /**
  * Command to generate some predefined data in DB
@@ -17,6 +18,18 @@ class DataFixtureCommand extends ContainerAwareCommand
 {
     private $roles;
     private $data = array(
+        'categories' => array(
+            'cats',
+            'dogs',
+            'flowers',
+            'trees',
+            'men',
+            'women',
+            'boys',
+            'girls',
+            'mountain',
+            'tennis'
+        ),
         'roles' => array(
             array('name' => 'User', 'role' => Role::ROLE_USER),
             array('name' => 'Admin', 'role' => Role::ROLE_ADMIN),
@@ -56,6 +69,17 @@ class DataFixtureCommand extends ContainerAwareCommand
         $this->truncateEntities();
         $em = $this->getContainer()->get('doctrine')->getEntityManager();
         $output->writeln('<comment>Importing predefined data ...<comment>');
+        
+        // Create fliker categories
+        foreach ($this->data['categories'] as $name) {
+            $category = new Category();
+            $category->setTag($name);
+            $category->setTitle(ucfirst($name));
+            $category->setDescription('');
+            
+            $em->persist($category);
+        }
+        $em->flush(); 
 
         // Create roles
         foreach ($this->data['roles'] as $roleData) {
