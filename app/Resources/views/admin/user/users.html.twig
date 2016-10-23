@@ -21,10 +21,10 @@
                 <td>{{ user.firstName }} {{ user.lastName }}</td>
                 <td>
                     <div class="pull-right">
-                        <a href="{{ path('admin_user_edit', {id: user.id}) }}" class="btn btn-primary" class="btn">
+                        <a href="{{ path('admin_user_edit', {userId: user.id}) }}" class="btn btn-primary" class="btn">
                             {{ 'action.edit'|trans }}
                         </a>
-                        <a href="{{ path('admin_user_delete', {id: user.id}) }}" class="btn btn-primary" class="btn">
+                        <a href="{{ path('admin_user_delete', {userId: user.id}) }}" class="btn btn-primary" class="btn">
                             {{ 'action.delete'|trans }}
                         </a>                            
                     </div>  

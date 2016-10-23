@@ -25,4 +25,9 @@ services:
         arguments: 
             - "@translator.default"
         tags:
-            - { name: twig.extension }            
+            - { name: twig.extension }     
+    
+    app.test:
+        class: UserBundle\Service\Test
+        arguments: 
+            - "@app.service"            
