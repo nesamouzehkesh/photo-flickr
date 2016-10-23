@@ -1,0 +1,28 @@
+services:    
+    app.service:
+        class: AppBundle\Service\AppService
+        public: false
+        arguments: 
+            - "@translator.default"
+            - "@security.token_storage"
+            - "@doctrine.orm.default_entity_manager"
+            - "@request_stack"
+            - "@knp_paginator"
+            - "%app_service_params%"
+            
+    app.md5encoder.service:
+        class: AppBundle\Service\Md5Encoder
+        arguments: 
+            - "%app_saltmain%"
+
+    app.user.service:
+        class: UserBundle\Service\UserService
+        arguments: 
+            - "@app.service"
+             
+    app.twig.filter.service:
+        class: AppBundle\Library\Twig\TwigFilterExtension
+        arguments: 
+            - "@translator.default"
+        tags:
+            - { name: twig.extension }            

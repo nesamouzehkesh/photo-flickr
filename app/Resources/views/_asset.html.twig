@@ -1,0 +1,30 @@
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+{% javascripts
+    'assets/vendor/jquery/dist/jquery.min.js'
+    'assets/vendor/moment/min/moment.min.js'
+    'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
+    'assets/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'
+    'assets/vendor/bootbox.js/bootbox.js'
+    'assets/vendor/select2/select2.js'
+    '@AppBundle/Resources/public/app/app.js'
+    output = 'js/app.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% stylesheets
+    'assets/vendor/select2/select2.css'
+    'assets/vendor/bootstrap/dist/css/bootstrap.min.css'
+    'assets/vendor/bootstrap/dist/css/bootstrap.min.css'
+    'assets/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css'
+    output = 'css/app-vendor.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+
+{% stylesheets
+    '@AppBundle/Resources/public/font/latofonts.css'
+    '@AppBundle/Resources/public/app/app-admin.css'
+    '@AppBundle/Resources/public/app/app.css'
+    output = 'css/app.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}

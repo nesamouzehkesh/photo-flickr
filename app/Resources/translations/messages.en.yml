@@ -1,0 +1,126 @@
+word:
+    title: Ttile
+    content: Content
+    records: Records
+    url: Url
+    pageNumber: "Page %pageNumber%"
+    previousPage: "Previous page"
+    nextPage: "Next page"
+    firstPage: "First page"
+    lastPage: "Last page"  
+    columnNumber: "Column %number%"
+    on: On
+    off: Off
+    selectAnItem: Select an item
+    warning: Warning
+    signedInAs: Signed in as
+    logIn: Sign In
+    logOut: Sign Out
+    loading: Loading
+    createAccount: Create Account
+    forgotPassword: "Forgot your password?"
+    keepMeLoggedIn: Keep me logged in
+    emailAddress: Email address
+    password: Password
+    
+alert:
+    error:
+        canNotDisplayItem: "Can not display this item"
+        canNotDisplayItems: "Can not display items"
+        canNotDeleteItem: "Can not delete this item"
+        canNotDownloadItem: "Can not download this item"
+        canNotPerformRequest: "Can not perform the request"
+        canNotUploadItem: "Can not upload this item"
+        canNotAddItem: "Can not add this item"
+        canEditAddItem: "Can not edit this item"
+        noItemFound: "No item has been found"
+        insufficientPermission: "You don't have permission to access this item"
+    success:
+        itemRemoved: "Item has been removed successfully"
+    info:
+    warning:
+        doYouWantToDeleteItem: "Do your really want to delete this item?"
+        
+action:
+    logout: Sign out
+    addFiles: Add files...
+    addNewItem: Add New Item
+    backToPreviousPage: Back
+    send: Send
+    save: Save
+    copy: Copy
+    close: Close
+    add: Add
+    edit: Edit
+    cancel: Cancel
+    delete: Delete
+    display: Display
+    submit: Submit
+    search: Search
+    browse: Browse
+
+
+icon:
+    arrowLeft: glyphicon glyphicon-chevron-left
+    arrowRight: glyphicon glyphicon-chevron-right
+    arrowUp: glyphicon glyphicon-chevron-up
+    arrowDown: glyphicon glyphicon-chevron-down
+    admin: glyphicon glyphicon-cog
+    dashboard: glyphicon glyphicon-dashboard
+    user: glyphicon glyphicon-user
+    page: glyphicon glyphicon-list
+    add: glyphicon glyphicon-plus
+    colorSelect: glyphicon glyphicons-eyedropper
+    calendar: glyphicon glyphicon-calendar    
+    chevronRight: glyphicon glyphicon-chevron-right
+    chevronUp: glyphicon glyphicon-collapse-up
+    delete: glyphicon glyphicon-trash
+    date: glyphicon glyphicon-calendar
+    edit: glyphicon glyphicon-pencil
+    home: glyphicon glyphicon-home
+    move: glyphicon glyphicon-move
+    ok: glyphicon glyphicon-ok
+    plus: glyphicon glyphicon-plus
+    play: glyphicon glyphicon-play_button
+    publish: glyphicon glyphicon-send
+    shoppingCart: glyphicon glyphicon-shopping-cart
+    square: glyphicon glyphicon-stop
+    star: glyphicon glyphicon-star
+    startDate: glyphicon glyphicon-calendar
+    setting: glyphicon glyphicon-cog
+    automatic: glyphicon glyphicon-cog
+    search: glyphicon glyphicon-search
+    remove: glyphicon glyphicon-trash
+    display: glyphicon glyphicon-eye-open
+    time: glyphicon glyphicon-time
+    url: glyphicon glyphicon-link
+    page: glyphicon glyphicon-th-large
+    paperclip: glyphicon glyphicon-paperclip
+    logIn: glyphicon glyphicon-lock
+    logout: glyphicon glyphicon-off
+    createAccount: glyphicon glyphicon-user
+    visibility:
+        public: glyphicon glyphicon-unlock
+        private: glyphicon glyphicon-lock
+        hidden: glyphicon glyphicon-eye-close
+    pagination:
+        nextIcon: glyphicon glyphicon-chevron-right
+        previousIcon: glyphicon glyphicon-chevron-left    
+    alert:
+        warning: glyphicon glyphicon-exclamation-sign
+        info: glyphicon glyphicon-info-sign
+        question: glyphicon glyphicon-question-sign
+        ok: glyphicon glyphicon-ok-sign
+        remove: glyphicon glyphicon-remove-sign
+        minus: glyphicon glyphicon-minus-sign
+        plus: glyphicon glyphicon-plus-sign
+
+module:
+    dashboard:
+        title: Dashboard
+        description: ""
+        icon: glyphicon glyphicon-dashboard
+    user:
+        title: Users
+        description: "Edit your profile, update your username and password, and manage other account settings."
+        icon: glyphicon glyphicon-user

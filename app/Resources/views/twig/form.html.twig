@@ -1,0 +1,20 @@
+{% form_theme form '::twig/formRow.html.twig' %}
+
+{{ form_start(form) }}
+    <div class="form-body">
+        <div class="form-message"></div>
+        {% block body %}{% endblock %}
+    </div>
+
+    <div class="form-footer">
+        <button id="form-submit-{{ form.vars.name }}" class="btn btn-primary" type="submit">{{ 'action.save'|trans }}</button>            
+        <button class="btn btn-primary" type="button" data-dismiss="modal">{{ 'action.close'|trans }}</button>
+    </div>
+{{ form_end(form) }}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.form-control-select2').select2();
+    });
+</script>
+{% block formScript %}{% endblock %}

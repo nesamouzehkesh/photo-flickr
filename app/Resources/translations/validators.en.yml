@@ -1,0 +1,8 @@
+# IMPORTANT clear your cache as you've added new translations (do it even if you're in dev environment).
+# php var/console cache:clear
+# 
+error:
+    emailIsNotValid: "The email is not a valid email"
+success: ~
+info: ~
+warning: ~

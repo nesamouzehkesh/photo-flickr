@@ -1,0 +1,4 @@
+services:
+    app.user.service:
+        class: UserBundle\Service\UserService
+        arguments: ["@app.service"]

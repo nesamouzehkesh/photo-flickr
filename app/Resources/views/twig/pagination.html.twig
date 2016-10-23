@@ -1,0 +1,72 @@
+{% set routeParams = app.request.attributes.get('_route_params') %}
+{% set extraParam = (routeParams['headless'] is defined)? {'headless': false} : {} %}
+
+{# default Sliding pagination control implementation #}
+{% set nextIcon = '<span class="d-pagination-button ' ~ 'icon.pagination.nextIcon' | trans ~ '"></span>' %}
+{% set previousIcon = '<span class="d-pagination-button ' ~ 'icon.pagination.previousIcon' | trans ~ '"></span>' %}
+
+{% set nextIcon = nextIcon|default('&gt;') %}
+{% set previousIcon = previousIcon|default('&lt;') %}
+<div class="row text-center">
+    <div class="col-md-5 col-md-offset-3">
+        {% if pageCount > 1 %}
+        <ul class="pagination">
+            {% if first is defined and current != first %}
+                <li class="first">
+                    <a class="action-pagination" data-page="{{ first }}" href="{{ path(route, query|merge({(pageParameterName): first})|merge(extraParam)) }}" title="{{ 'word.firstPage'|trans }}">{{ previousIcon | raw }}{{ previousIcon | raw }}</a>
+                </li>
+                {% if previous is defined %}
+                    <li class="previous">
+                        <a class="action-pagination" data-page="{{ previous }}" href="{{ path(route, query|merge({(pageParameterName): previous})|merge(extraParam)) }}" title="{{ 'word.previousPage'|trans }}">{{ previousIcon | raw }}</a>
+                    </li>
+                {% else %}
+                    <li class="disabled"><a href="#" onclick="return false;" title="{{ 'word.previousPage'|trans }}">{{ previousIcon | raw }}</a></li>
+                {% endif %}
+            {% else %}
+                <li class="first disabled">
+                    <a class="action-pagination" href="#" onclick="return false;" title="{{ 'word.firstPage'|trans }}">{{ previousIcon | raw }}{{ previousIcon | raw }}</a>
+                </li>
+                <li class="disabled"><a href="#" onclick="return false;" title="{{ 'word.previousPage'|trans }}">{{ previousIcon | raw }}</a></li>
+            {% endif %}
+
+            {% for page in pagesInRange %}
+                {% if page != current %}
+                    <li class="page">
+                        <a class="action-pagination" data-page="{{ page }}" href="{{ path(route, query|merge({(pageParameterName): page})|merge(extraParam)) }}" title="{{ 'word.pageNumber'|trans({'%pageNumber%': page}) }}">{{ page }}</a>
+                    </li>
+                {% else %}
+                    <li class="action-pagination current active"><a class="active" href="#" onclick="return false;" title="{{ 'word.pageNumber'|trans({'%pageNumber%': page}) }}">{{ page }}</a></li>
+                {% endif %}
+
+            {% endfor %}
+
+            {% if last is defined and current != last %}
+                {% if next is defined %}
+                    <li class="next">
+                        <a class="action-pagination" data-page="{{ next }}" href="{{ path(route, query|merge({(pageParameterName): next})|merge(extraParam)) }}" title="{{ 'word.nextPage'|trans }}">{{ nextIcon|raw }}</a>
+                    </li>
+                {% else %}
+                    <li class="disabled"><a href="#" onclick="return false;" title="{{ 'word.nextPage'|trans }}">{{ nextIcon|raw }}</a></li>
+                {% endif %}            
+                <li class="last">
+                    <a class="action-pagination" data-page="{{ last }}" href="{{ path(route, query|merge({(pageParameterName): last})|merge(extraParam)) }}" title="{{ 'word.lastPage'|trans }}">{{ nextIcon|raw }}{{ nextIcon|raw }}</a>
+                </li>
+            {% else %}        
+                <li class="disabled"><a href="#" onclick="return false;" title="{{ 'word.nextPage'|trans }}">{{ nextIcon|raw }}</a></li>
+                <li class="last disabled">
+                    <a class="action-pagination" href="#" onclick="return false;" title="{{ 'word.lastPage'|trans }}">{{ nextIcon|raw }}{{ nextIcon|raw }}</a>
+                </li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </div>
+    <div class="col-md-4">
+        <div class="pagination-number-text">
+            {% if totalCount == 0 %}
+                No {{ (recordName is defined ? recordName : 'word.records') | trans }} found
+            {% else %}
+                {{ numItemsPerPage*(current-1) + 1 }} - {{ min(numItemsPerPage*current, totalCount) }} of {{ totalCount }} {{ (recordName is defined ? recordName : 'word.records') | trans | lower }} shown
+            {% endif %}
+        </div>
+    </div>
+</div>

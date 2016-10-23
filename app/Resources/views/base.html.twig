@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="ng-scope" ng-app="myApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset={{ _charset }}"/>
+        <meta name="robots" content="noindex,nofollow" />
+        <title>{% block title %}{% endblock %}</title>
+        {% include "::_asset.html.twig" %}
+        {% block htmlHeader %}{% endblock %}
+    </head>
+        
+    <body>
+        <div id="main-sidebar" data-spy="affix" data-offset-top="0" data-offset-bottom="0">
+            {% include '::_sidebar.html.twig'%}
+        </div>
+        <div id="main-body" class="main-body-default container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-s-11 col-md-10 col-lg-10 margin-top-40">
+                    {% block header %}{% endblock %}
+                    <div class="block margin-top-10">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            {% block body %}{% endblock %}
+                          </div>
+                        </div>        
+                    </div>
+                </div>
+            </div>            
+        </div>
+        {% block script %}{% endblock %}    
+    </body>
+</html>

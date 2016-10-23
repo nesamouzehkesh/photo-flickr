@@ -1,0 +1,19 @@
+# Admin modules routing configurations
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/users
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    prefix:   /admin
+
+# Route configs related to admin login page
+admin_login:
+    path:     /login
+    defaults: { _controller: AppBundle:Security:login }
+admin_login_check:
+    path: /admin/login_check
+admin_logout:
+    path: /admin/logout

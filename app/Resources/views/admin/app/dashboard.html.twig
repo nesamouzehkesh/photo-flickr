@@ -1,0 +1,15 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    {% for key, module in twig.app.modules %}
+        {% if key != 'dashboard' %}
+            <a href="{{ path(module.route) }}" class="module-logo" title="{{ ('module.' ~ key ~ '.description')|trans }}">
+                {{ ('module.' ~ key ~ '.icon')|icon }}
+                <h3>{{ ('module.' ~ key ~ '.title')|trans }}</h3>
+                <span class="description">
+                    {{ ('module.' ~ key ~ '.description')|trans }}
+                </span>    
+            </a>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
