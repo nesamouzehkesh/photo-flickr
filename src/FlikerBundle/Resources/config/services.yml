@@ -1,4 +1,0 @@
-services:
-    app.fliker.service:
-        class: FlikerBundle\Service\FlikerService
-        arguments: ["@app.service"]

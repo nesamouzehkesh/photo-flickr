@@ -1,6 +1,6 @@
 <?php
 
-namespace FlikerBundle\Entity;
+namespace FlickrBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Library\Base\BaseEntity;
@@ -8,8 +8,8 @@ use AppBundle\Library\Base\BaseEntity;
 /**
  * Category
  *
- * @ORM\Table(name="nesa_fliker_category")
- * @ORM\Entity(repositoryClass="FlikerBundle\Entity\Repository\CategoryRepository")
+ * @ORM\Table(name="nesa_flickr_category")
+ * @ORM\Entity(repositoryClass="FlickrBundle\Entity\Repository\CategoryRepository")
  */
 class Category extends BaseEntity
 {

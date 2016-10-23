@@ -175,35 +175,24 @@ class AppService extends BaseService
         return $itemsPagination;
     }
     
-    
-
     /**
      * 
-     * @param type $success
-     * @param type $messageId
-     * @param type $content
      * @param type $parameters
-     * @param type $ex
+     * @param type $message
+     * @param type $success
      * @return JsonResponse
-     * @throws \Exception
      */
     public function getJsonResponse(
-        $success, 
-        $message = null, 
-        $content = null, 
-        $parameters = null
+        $parameters = null,
+        $message = null,
+        $success = true 
         )
     {
         // Set jason success status
         $response = array(
             'success' => $success,
-            'message' => $message
+            'message' => $this->translator->trans($message)
         );
-        
-        // Set jason contet if it is provide
-        if (null !== $content) {
-            $response['content'] = $content;
-        }
         
         // Merge jason responce with some extra user parameters
         if (null !== $parameters) {

@@ -1,9 +1,9 @@
 <?php
 
-namespace FlikerBundle;
+namespace FlickrBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class FlikerBundle extends Bundle
+class FlickrBundle extends Bundle
 {
 }

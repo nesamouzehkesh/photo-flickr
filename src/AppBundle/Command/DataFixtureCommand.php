@@ -7,7 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use UserBundle\Entity\User;
 use UserBundle\Entity\Role;
-use FlikerBundle\Entity\Category;
+use FlickrBundle\Entity\Category;
 
 /**
  * Command to generate some predefined data in DB

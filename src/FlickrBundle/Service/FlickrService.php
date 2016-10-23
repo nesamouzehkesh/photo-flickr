@@ -1,11 +1,11 @@
 <?php
 
-namespace FlikerBundle\Service;
+namespace FlickrBundle\Service;
 
 use AppBundle\Service\AppService;
-use FlikerBundle\Entity\Category;
+use FlickrBundle\Entity\Category;
 
-class FlikerService
+class FlickrService
 {
     /**
      *
@@ -36,7 +36,7 @@ class FlikerService
         
         // Get Category form repository
         $category = $this->appService->getEntityManager()
-            ->getRepository('FlikerBundle:Category')
+            ->getRepository('FlickrBundle:Category')
             ->getCategory($categoryId);
 
         // Check if category is found
@@ -50,14 +50,25 @@ class FlikerService
     
     /**
      * 
-     * @param type $justQuery
      * @return type
      */
-    public function getCategories($justQuery = true)
+    public function getCategories()
     {
         return $this->appService->getEntityManager()
-            ->getRepository('FlikerBundle:Category')
-            ->getCategories($justQuery);
+            ->getRepository('FlickrBundle:Category')
+            ->getCategories();
+    }
+    
+    /**
+     * 
+     * @param type $criteria
+     * @return type
+     */
+    public function getCategoriesData($criteria = array())
+    {
+        return $this->appService->getEntityManager()
+            ->getRepository('FlickrBundle:Category')
+            ->getCategoriesData($criteria);
     }
     
     /**

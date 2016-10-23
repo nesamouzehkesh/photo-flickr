@@ -16,7 +16,7 @@ class UserAdminController extends BaseController
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @return type
      * 
-     * @Route("/", name="admin_user_index")
+     * @Route("/admin/users", name="admin_user_index")
      */
     public function indexAction()
     {
@@ -40,8 +40,8 @@ class UserAdminController extends BaseController
      * 
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @return type
-     * @Route("/edit/user/{userId}", name="admin_user_edit")
-     * @Route("/add/user", name="admin_user_add", defaults={"id" = null})
+     * @Route("/admin/users/edit/{userId}", name="admin_user_edit")
+     * @Route("/admin/users/add", name="admin_user_add", defaults={"id" = null})
      */
     public function addEditUserAction(Request $request, $userId = null)
     {
@@ -82,7 +82,7 @@ class UserAdminController extends BaseController
      * 
      * @param type $userId
      * @return type
-     * @Route("/delete/{userId}", name="admin_user_delete")
+     * @Route("/admin/users/delete/{userId}", name="admin_user_delete")
      */
     public function deleteUserAction($userId)
     {

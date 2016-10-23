@@ -1,7 +1,7 @@
 {% extends "::base.html.twig" %}
 
 {% block header %}
-    <a href="{{ path('admin_fliker_category_add') }}" class="btn btn-primary" class="btn">
+    <a href="{{ path('admin_flickr_category_add') }}" class="btn btn-primary" class="btn">
         {{ 'icon.add'|icon }} Add New Category
     </a>
 {% endblock %}
@@ -25,10 +25,10 @@
                 <td>{{ category.tag }}</td>
                 <td>
                     <div class="pull-right">
-                        <a href="{{ path('admin_fliker_category_edit', {id: category.id}) }}" class="btn btn-primary" class="btn">
+                        <a href="{{ path('admin_flickr_category_edit', {id: category.id}) }}" class="btn btn-primary" class="btn">
                             {{ 'icon.edit'|icon }} {{ 'action.edit'|trans }}
                         </a>
-                        <a href="{{ path('admin_fliker_category_delete', {id: category.id}) }}" class="btn btn-primary" class="btn">
+                        <a href="{{ path('admin_flickr_category_delete', {id: category.id}) }}" class="btn btn-primary" class="btn">
                             {{ 'icon.delete'|icon }} {{ 'action.delete'|trans }}
                         </a>
                     </div>  

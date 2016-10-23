@@ -2,7 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: "@AppBundle/Resources/config/services.yml" }
-    - { resource: "@FlikerBundle/Resources/config/services.yml" }
+    - { resource: "@FlickrBundle/Resources/config/services.yml" }
     
     
 # Put parameters here that don't need to change on each machine where the app is deployed
@@ -61,8 +61,8 @@ twig:
                         route: admin_app_dashboard
                     user: 
                         route: admin_user_index
-                    fliker:
-                        route: admin_fliker_category_index
+                    flickr:
+                        route: admin_flickr_category_index
 
 # Doctrine configurations
 # Its prize projects are an object-relational mapper (ORM) and the database 

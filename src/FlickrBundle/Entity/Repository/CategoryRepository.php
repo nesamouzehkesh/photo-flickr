@@ -1,6 +1,6 @@
 <?php
 
-namespace FlikerBundle\Entity\Repository;
+namespace FlickrBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -33,15 +33,26 @@ class CategoryRepository extends EntityRepository
      * @param bool $justQuery
      * @return type
      */
-    public function getCategories($justQuery = true)
+    public function getCategories()
     {
         $qb = $this->createQueryBuilder('category')
             ->where('category.deleted = 0');
         
-        if (!$justQuery) {
-            return $qb->getQuery()->getResult();
-        }
-        
         return $qb->getQuery();
+    } 
+    
+    /**
+     * Get all categories data
+     * 
+     * @param type $criteria
+     * @return type
+     */
+    public function getCategoriesData($criteria = array())
+    {
+        $qb = $this->createQueryBuilder('category')
+            ->select('category.id, category.title, category.tag')
+            ->where('category.deleted = 0');
+        
+        return $qb->getQuery()->getScalarResult();
     } 
 }

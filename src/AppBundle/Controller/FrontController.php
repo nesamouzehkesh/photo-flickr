@@ -5,10 +5,10 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Library\Base\BaseController;
 
-class DashboardControllerController extends BaseController
+class FrontController extends BaseController
 {
     /**
-     * @Route("/", name="admin_app_dashboard")
+     * @Route("/", name="front_home")
      */    
     public function displayDashboardAction()
     {

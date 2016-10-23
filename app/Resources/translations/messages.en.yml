@@ -124,7 +124,7 @@ module:
         title: Users
         description: "Edit your profile, update your username and password, and manage other account settings."
         icon: glyphicon glyphicon-user
-    fliker:
-        title: Fliker Categories
-        description: "Edit your fliker categories, update and manage categories."
+    flickr:
+        title: Flickr Categories
+        description: "Edit your flickr categories, update and manage categories."
         icon: glyphicon glyphicon-file        

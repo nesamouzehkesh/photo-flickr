@@ -1,6 +1,6 @@
 <?php
 
-namespace FlikerBundle\Form\Type;
+namespace FlickrBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -13,7 +13,7 @@ class CategoryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'FlikerBundle\Entity\Category',
+            'data_class' => 'FlickrBundle\Entity\Category',
         ));
     }
 
@@ -32,7 +32,7 @@ class CategoryType extends AbstractType
      */
     public function getName()
     {
-        return 'nesa_fliker_category';
+        return 'nesa_flickr_category';
     }
 } 
 

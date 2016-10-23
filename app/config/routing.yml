@@ -2,18 +2,15 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
-    prefix:   /admin
 
 user:
     resource: "@UserBundle/Controller/"
     type:     annotation
-    prefix:   /admin/users
     
-fliker:
-    resource: "@FlikerBundle/Controller/"
+flickr:
+    resource: "@FlickrBundle/Controller/"
     type:     annotation
-    prefix:   /admin/fliker
-    
+
 
 # Route configs related to admin login page
 admin_login:
