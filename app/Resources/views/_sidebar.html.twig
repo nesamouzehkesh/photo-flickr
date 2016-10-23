@@ -21,7 +21,10 @@
         {% endfor %}
     </div>
     <div class="footer">
-       <a href="{{ path('admin_logout') }}">{{ 'icon.logout'|icon }} {{ 'action.logout'|trans }}</a>
+       <a href="{{ path('admin_logout') }}">
+           {{ 'icon.logout'|icon }} 
+           <span class="module-title">{{ 'action.logout'|trans }}</span>
+       </a>
     </div>           
 </div>
 

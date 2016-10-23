@@ -1,18 +1,24 @@
 # Admin modules routing configurations
-user:
-    resource: "@UserBundle/Controller/"
-    type:     annotation
-    prefix:   /admin/users
-
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
     prefix:   /admin
 
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/users
+    
+fliker:
+    resource: "@FlikerBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/fliker
+    
+
 # Route configs related to admin login page
 admin_login:
-    path:     /login
-    defaults: { _controller: AppBundle:Security:login }
+    path:     /login/{isFront}
+    defaults: { _controller: AppBundle:Security:login, isFront: false }
 admin_login_check:
     path: /admin/login_check
 admin_logout:

@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             // System bundles
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),
+            new FlikerBundle\FlikerBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

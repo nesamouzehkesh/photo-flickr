@@ -1,0 +1,45 @@
+{% extends "::base.html.twig" %}
+
+{% block header %}
+    <a href="{{ path('admin_fliker_category_add') }}" class="btn btn-primary" class="btn">
+        {{ 'icon.add'|icon }} Add New Category
+    </a>
+{% endblock %}
+
+{% block body %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Search Tag</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {# table body #}
+        {% for category in pagination %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.title }}</td>
+                <td>{{ category.tag }}</td>
+                <td>
+                    <div class="pull-right">
+                        <a href="{{ path('admin_fliker_category_edit', {id: category.id}) }}" class="btn btn-primary" class="btn">
+                            {{ 'icon.edit'|icon }} {{ 'action.edit'|trans }}
+                        </a>
+                        <a href="{{ path('admin_fliker_category_delete', {id: category.id}) }}" class="btn btn-primary" class="btn">
+                            {{ 'icon.delete'|icon }} {{ 'action.delete'|trans }}
+                        </a>
+                    </div>  
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>    
+{% endblock %}

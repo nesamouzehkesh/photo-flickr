@@ -1,0 +1,16 @@
+{% form_theme form '::twig/formRow.html.twig' %}
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    
+        {{ form_row(form.title) }}
+        {{ form_row(form.tag) }}
+        {{ form_row(form.description) }}
+
+        <button class="btn btn-primary" type="submit">
+            {{ 'action.save'|trans }}
+        </button>
+    {{ form_end(form) }}
+{% endblock %}

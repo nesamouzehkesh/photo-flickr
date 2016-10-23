@@ -4,7 +4,7 @@ body {
     font-size: 11pt !important;
     font-style: normal;
     height:100%;
-    background-color: #f9f9f9; //#e5e5e5;
+    background-color: #f9f9f9
 }
 
 .margin-left-0  {margin-left: 0px;}
@@ -565,8 +565,6 @@ input:focus {
     }
 }
 
-
-//To remove all doted outline, including those in bootstrap themes.
 a, 
 a:active, 
 a:focus, 
@@ -596,6 +594,5 @@ button:active,
 
 #owl-order-images .item img{
     display: block;
-    //width: 100%;
     height: auto;
 }
