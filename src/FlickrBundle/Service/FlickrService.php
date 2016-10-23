@@ -4,6 +4,9 @@ namespace FlickrBundle\Service;
 
 use AppBundle\Service\AppService;
 use FlickrBundle\Entity\Category;
+use FlickrBundle\Library\NesaFlickrApi\NesaFlickrApi;
+use FlickrBundle\Library\NesaFlickrApi\NesaFlickrPhotoRepository;
+use Ideato\FlickrApi\Wrapper\Curl;
 
 class FlickrService
 {
@@ -14,12 +17,33 @@ class FlickrService
     protected $appService;
     
     /**
+     *
+     * @var array $params
+     */
+    protected $params;
+    
+    /**
+     *
+     * @var NesaFlickrApi 
+     */
+    protected $flickrApi;
+
+    /**
      * 
      * @param AppService $appService
      */
-    public function __construct(AppService $appService) 
+    public function __construct(AppService $appService, $params) 
     {
         $this->appService = $appService;
+        $this->params = $params;
+        
+        // Make a new flickr api
+        $this->flickrApi = new NesaFlickrApi(
+            new Curl(), 
+            $this->params['apiUrl'],
+            $this->params['apiUserId'],
+            $this->params['apiKey']
+            );        
     }
     
     /**
@@ -78,5 +102,44 @@ class FlickrService
     public function makeCategory()
     {
         return new Category();
+    }
+    
+    /**
+     * Search photos
+     * 
+     * @param array $criteria
+     * @return type
+     */
+    public function searchPhotos($criteria = array())
+    {
+        // Flickr image repository
+        $repository = new NesaFlickrPhotoRepository();
+        
+        // Calls the flickr.photos.search api method with the given search tag
+        $tag = isset($criteria['tag'])? $criteria['tag']: '';
+        $xml = $this->flickrApi->searchPhotos($tag);
+        
+        // Conver XML result to simple array
+        $photos = $repository->getPhotosFromXml($xml);
+        
+        return $photos;
+    }
+    
+    /**
+     * 
+     * @param type $id
+     */
+    public function getPhoto($id)
+    {
+        // Flickr image repository
+        $repository = new NesaFlickrPhotoRepository();
+        
+        // Calls the flickr.photos.search api method with the given search tag
+        $xml = $this->flickrApi->getPhoto($id);
+        
+        // Conver XML result to simple array
+        $photo = $repository->getPhotoFromXml($xml);
+        
+        return $photo;
     }
 }

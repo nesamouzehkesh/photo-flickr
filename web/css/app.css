@@ -637,11 +637,25 @@ button:active,
     content: " ...";
 }
 
-.form-qty-small {
-    width: 65px !important;
+#flickr-categories li {
+    cursor: pointer;
+}
+#flickr-categories li:hover {
+    background-color: #eee;
+}
+#flickr-categories .selected {
+    background-color: #3aa3e3;
+    color: #fff;
+    font-weight: 12px;
+}
+#flickr-categories .selected:hover {
+    background-color: #399edb;
 }
 
-#owl-order-images .item img{
-    display: block;
-    height: auto;
+#flickr-photo-container .flickr-photo {
+    opacity: 0.8;
+    cursor: pointer;
+}
+#flickr-photo-container .flickr-photo:hover {
+    opacity: 1;
 }

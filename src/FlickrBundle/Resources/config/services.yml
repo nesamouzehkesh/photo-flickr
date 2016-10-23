@@ -1,4 +1,6 @@
 services:
     app.flickr.service:
         class: FlickrBundle\Service\FlickrService
-        arguments: ["@app.service"]
+        arguments: 
+            - "@app.service"
+            - "%app.flickr.service.params%"

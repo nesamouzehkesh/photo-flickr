@@ -13,7 +13,7 @@ class FrontController extends BaseController
     public function displayDashboardAction()
     {
         return $this->render(
-            '::admin/app/dashboard.html.twig',
+            '::front/index.html.twig',
             array()
         );
     }

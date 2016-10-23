@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html class="ng-scope" ng-app="myApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset={{ _charset }}"/>
+        <meta name="robots" content="noindex,nofollow" />
+        <title>{% block title %}{% endblock %}</title>
+        {% include "::_asset.html.twig" %}
+
+        {% javascripts
+            '@FlickrBundle/Resources/public/app.js'
+            output = 'js/app-front.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}        
+    </head>
+        
+    <body class="container">
+        <div class="row margin-top-20">
+            <div class="col-md-3">
+                <a href="{{ path('admin_app_dashboard')}}">
+                    {{ 'icon.setting'|icon }} Admin
+                </a>
+                <ul class="list-group" id="flickr-categories"></ul>                
+            </div>
+            <div class="col-md-8">
+                <div class="block margin-top-20">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="flickr-photo-container">
+                                <!--Please select a category from the left to see images here-->
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+            </div>
+        </div>        
+    </body>
+</html>

@@ -1,0 +1,5 @@
+parameters:
+    app.flickr.service.params:
+        apiUrl: "https://api.flickr.com/services/rest/?" 
+        apiUserId: "148299470@N03"
+        apiKey: "028ee121b3375235be0364fcac146df9"
