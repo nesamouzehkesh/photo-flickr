@@ -50,33 +50,18 @@ class NesaFlickrPhotoRepository
      */
     public function getPhotoFromXml(\SimpleXMLElement $xml)
     {
-        var_dump($xml);
-        exit;
-        
-        $photos = array();
-        $sizes = array('t', 's', 'm', 'l');
-        foreach ($xml->photo as $photo)
-        {
-            // Get all attributes of a sigle xml element
-            $attributes = $photo->attributes();
-            
-            // Get all image url of different sizes
-            $urls = array();
-            foreach ($sizes as $size) {
-                if (isset($attributes['url_' . $size])) {
-                    $urls[$size] = (string) $attributes['url_' . $size];
-                }
-            }
-            
-            $photos[] = array(
-                'id'    => (string) $attributes['id'],
-                'owner' => (string) $attributes['owner'],
-                'title' => (string) $attributes['title'],
-                'urls'  => $urls
-            );
-        }
+        // Get all attributes of a sigle xml element
+        $owner = $xml->owner->attributes();
 
-        return $photos;
+        $photo = array(
+            'owner' => array(
+                'id' => (string) $owner['nsid'],
+                'name' => (string) $owner['username']
+            ),
+            'title' => (string) $xml->title,
+            'description' => (string) $xml->description,
+        );
+        
+        return $photo;
     }
-    
 }

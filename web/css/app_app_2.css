@@ -588,25 +588,25 @@ button:active,
     content: " ...";
 }
 
-#flickr-categories li {
+#categories-container li {
     cursor: pointer;
 }
-#flickr-categories li:hover {
+#categories-container li:hover {
     background-color: #eee;
 }
-#flickr-categories .selected {
+#categories-container .selected {
     background-color: #3aa3e3;
     color: #fff;
     font-weight: 12px;
 }
-#flickr-categories .selected:hover {
+#categories-container .selected:hover {
     background-color: #399edb;
 }
 
-#flickr-photo-container .flickr-photo {
+#gallery-container .flickr-photos {
     opacity: 0.8;
     cursor: pointer;
 }
-#flickr-photo-container .flickr-photo:hover {
+#gallery-container .flickr-photos:hover {
     opacity: 1;
 }

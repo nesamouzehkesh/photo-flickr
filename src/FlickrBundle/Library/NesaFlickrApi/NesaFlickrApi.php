@@ -63,7 +63,7 @@ class NesaFlickrApi extends FlickrApi
      */
     public function getPhoto($id)
     {
-        $url = $this->buildBaseUrl('flickr.photos.getInfo', '&photo_id='.$id.'&extras=path_alias,url_t,url_s,url_m,url_l');
+        $url = $this->buildBaseUrl('flickr.photos.getInfo', '&photo_id='.$id);
         $results = $this->curl->get($url);
         $xml = \simplexml_load_string($results);
 

@@ -4,8 +4,9 @@
 $(function() {
     
     var selectedItem;
-    var flickrCategories = $("#flickr-categories");
-    var flickrPhotoContainer = $('#flickr-photo-container');
+    var categoriesContainer = $("#categories-container");
+    var galleryContainer = $('#gallery-container');
+    var photoContainer = $('#photo-container');
     
     // API service 
     var flickrService = {
@@ -30,17 +31,20 @@ $(function() {
         },
     };
 
-    
+    // Load list of all categories
     flickrService.getCategories().done(function(data) {
         var dynamicItems = '';
         $.each(data.categories, function(index, category) {
-            dynamicItems += '<li class="list-group-item" data-id="' + category.tag + '">' + category.title + '</li>';
+            dynamicItems += '<li class="list-group-item" data-id="' + 
+                    category.tag + '">' + 
+                    category.title + '</li>';
         });
 
-        flickrCategories.append(dynamicItems);        
+        categoriesContainer.append(dynamicItems);        
     });
     
-    flickrCategories.on("click", "li", function() {
+    // Get the photos of one category
+    categoriesContainer.on("click", "li", function() {
         if (selectedItem !== undefined) {
             selectedItem.removeClass('selected');
         }
@@ -54,25 +58,45 @@ $(function() {
         };
         
         // Get photos from API and append it to container
-        flickrPhotoContainer.html('Loading ...');
+        galleryContainer.html('Loading ...');
         flickrService.getPhotos(criteria).done(function(data) {
             var dynamicItems = '';
             $.each(data.photos, function(index, photo) {
-                dynamicItems += '<img src="' + photo.urls.s + '" data-id="' + photo.id + '" alt="' + photo.title + '" class="img-thumbnail flickr-photo">';
+                dynamicItems += '<img src="' + 
+                        photo.urls.s + '" data-id="' + 
+                        photo.id + '" data-url-m="' + 
+                        photo.urls.m + '" alt="' + 
+                        photo.title + '" class="img-thumbnail flickr-photos"/>';
             });
             
-            flickrPhotoContainer.html('');
-            flickrPhotoContainer.append(dynamicItems);        
+            galleryContainer.html('');
+            galleryContainer.append(dynamicItems);        
         });
     });    
     
-    flickrPhotoContainer.on("click", ".flickr-photo", function() {
+    // Show one photo more info
+    galleryContainer.on("click", ".flickr-photos", function() {
         var photoId = $(this).attr('data-id');
+        var photoUrlMediom = $(this).attr('data-url-m');
         flickrService.getPhoto(photoId).done(function(data) {
-            
+            flickrService.getPhoto(photoId).done(function(data) {
+                
+                photoContainer.find('.photo-title').html(data.photo.title);
+                photoContainer.find('.photo-description').html(data.photo.description);
+                photoContainer.find('.photo-owner').html(data.photo.owner.name);
+                photoContainer.find('.photo-img').html('<img src="' + photoUrlMediom +'" class="img-thumbnail flickr-photo"/>');
+                
+                galleryContainer.hide();
+                photoContainer.fadeIn();
+            });
         });
     });    
-
+    
+    // Show the gallery page
+    photoContainer.on("click", ".back-button", function() {
+        photoContainer.hide();
+        galleryContainer.fadeIn();
+    });  
 });
 
 }(window.jQuery, window, document));

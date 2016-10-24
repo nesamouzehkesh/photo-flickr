@@ -19,15 +19,42 @@
                 <a href="{{ path('admin_app_dashboard')}}">
                     {{ 'icon.setting'|icon }} Admin
                 </a>
-                <ul class="list-group" id="flickr-categories"></ul>                
+                {# Show list of all categories #}
+                <ul class="list-group" id="categories-container"></ul>                
             </div>
             <div class="col-md-8">
                 <div class="block margin-top-20">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <div id="flickr-photo-container">
-                                <!--Please select a category from the left to see images here-->
+                            
+                            {# Gallery, show list of all photos in the selected category #}
+                            <div id="gallery-container">
+                                Please select a category from the left to see images here
                             </div>
+                            
+                            {# Show more information about a photo #}
+                            <div id="photo-container" style="display: none">
+                                <div class="row">
+                                    <div class="col-md-8 col-xs-12 col-sm-12">
+                                        <h3>
+                                            <span class="photo-title"></span>
+                                        </h3>
+                                        <span class="photo-img"></span>
+                                    </div>
+                                    <div class="col-md-4 col-xs-12 col-sm-12">
+                                        <button type="button" class="btn btn-primary back-button">Back to Gallery</button>
+                                        
+                                        <div>
+                                            <p>Description: <span class="photo-description"></span></p>
+                                            <address>
+                                              By: <strong class="photo-owner"></strong>
+                                            </address>                                        
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                            {# End: Show more information about a photo #}
+                            
                         </div>
                     </div>        
                 </div>
