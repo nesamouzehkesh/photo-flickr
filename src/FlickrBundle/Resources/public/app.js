@@ -57,8 +57,14 @@ $(function() {
             tag: selectedItem.attr('data-id')
         };
         
+        photoContainer.hide();
+        galleryContainer.fadeIn();        
+        
+        var galleryBody = galleryContainer.find('.body');
+        var galleryTitle = galleryContainer.find('.title');
         // Get photos from API and append it to container
-        galleryContainer.html('Loading ...');
+        galleryBody.html('Loading ...');
+        galleryTitle.html('');
         flickrService.getPhotos(criteria).done(function(data) {
             var dynamicItems = '';
             $.each(data.photos, function(index, photo) {
@@ -69,8 +75,8 @@ $(function() {
                         photo.title + '" class="img-thumbnail flickr-photos"/>';
             });
             
-            galleryContainer.html('');
-            galleryContainer.append(dynamicItems);        
+            galleryTitle.html(selectedItem.html());
+            galleryBody.html(dynamicItems);
         });
     });    
     
