@@ -17,10 +17,9 @@ Photo-flickr is a project that uses Flickr API and Symfony3 to create a photo ga
 
 - Finally, install.sh will run a data fixture command to populate some dummy data into your database.
 
-- When everything is installed navigate to the site home page, then click on “admin” link; the 
+## Administration
+When everything is installed navigate to the site home page, then click on “admin” link; the credentials are:
 
-credentials are:
+- Username: admin@admin.com
 
-Username: admin@admin.com
-
-Password: admin
+- Password: admin
